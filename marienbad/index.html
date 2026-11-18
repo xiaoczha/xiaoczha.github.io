@@ -1,18 +1,31 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Project Marienbad：以架构、流程与证据理清 AI 事务。"><title>Project Marienbad · 项目认知地图</title><link rel="stylesheet" href="style.css"></head>
 <body><a class="skip" href="#content">跳到项目图谱</a>
-<aside class="sidebar"><a class="brand" href="#all"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 27V5h8v14h8V5h8v22M8 27V9m16 18V9M12 23h8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>MARIENBAD<small>PROJECT ATLAS / 01</small></span></a><p class="sidebar-caption">把路径理清，让想法有处可回。</p>
-<label class="search-label" for="search">检索项目、目标或模块</label><input id="search" type="search" placeholder="搜索所有事务…" autocomplete="off">
-<nav class="main-nav" aria-label="视图"><a href="#all" id="all-link">项目图谱 <span id="total"></span></a><a href="#relations" id="relations-link">项目之间 <span>↗</span></a></nav>
-<div class="nav-heading">REPOSITORY INDEX</div><nav id="project-nav" aria-label="全部仓库索引"></nav>
-<div class="sidebar-bottom"><span class="small-dot"></span> <span id="edition-label">PUBLIC / READ ONLY</span><br></div></aside>
-<main id="content"><header class="topbar"><span>SECOND BRAIN <span class="slash">/</span> AI 事务地图</span></header>
-<section class="intro"><div class="eyebrow">PROJECT MARIENBAD <span>·</span> 把散落的线索，连成路径</div><h1>看清正在构建的世界。</h1><p>从每个项目的一张图开始。看见目标、走到哪里、还有什么可能，<br class="desktop">逐渐把分散的信息收敛成自己的 Second Brain。</p><div class="inventory"><span><strong id="project-count"></strong> 个项目</span><span><strong id="relation-count"></strong> 条关联线索</span><span>证据读取 <b id="observed-date"></b></span></div><p id="scope" class="scope"></p></section>
-<section class="toolbar" aria-label="图谱筛选"><div class="tabs" id="group-tabs"></div><label>进展 <select id="stage-filter" aria-label="按进展筛选"><option value="all">全部状态</option><option value="partial">已有实现 / 仍待验证</option><option value="available">已有内容 / 待线上核验</option><option value="unknown">个人进展未知</option><option value="empty">空仓库</option></select></label></section>
-<div class="map-heading"><span id="view-label">01 — 项目架构与路径</span><div class="legend"><span class="implemented">● 已有实现 / 内容</span><span class="verify">● 待验证</span><span class="planned">◌ 未来 / 建议</span><span class="unknown">○ 未知</span></div></div>
-<p class="hint">点击图中模块查看依据。已有内容表示来源声明存在；运行与部署是否通过，见具体证据。</p>
-<div id="atlas"></div><p id="empty" hidden>没有匹配的项目。调整搜索词或筛选条件即可。</p>
-<footer><span>每一条路径，都可以回到它的来源。</span><span>Marienbad / 初次汇集</span></footer></main>
-<dialog id="detail-dialog"><div class="dialog-head"><span id="detail-kind"></span><button data-close="detail-dialog" aria-label="关闭详情">×</button></div><h2 id="detail-title"></h2><p id="detail-text"></p><div id="detail-source"></div></dialog>
+<aside class="sidebar">
+  <a class="brand" href="#all">PROJECT MARIENBAD</a>
+  <label class="search-label" for="search">搜索项目或组件</label>
+  <input id="search" type="search" placeholder="名称、目标、组件…" autocomplete="off">
+  <nav class="main-nav" aria-label="视图">
+    <a href="#all" id="all-link">项目索引 <span id="total"></span></a>
+    <a href="#relations" id="relations-link">跨项目关系 <span id="relation-count"></span></a>
+  </nav>
+  <details id="index-panel">
+    <summary>项目索引 <span id="match-count"></span></summary>
+    <label class="grouping">索引分组 <select id="grouping"><option value="group">按领域</option><option value="stage">按状态</option></select></label>
+    <nav id="project-nav" aria-label="项目索引"></nav>
+  </details>
+  <div class="sidebar-bottom"><span id="edition-label">工作版</span><br></div>
+</aside>
+<main id="content">
+  <header class="topbar"><h1>项目图谱</h1></header>
+  <section class="toolbar" aria-label="图谱筛选">
+    <label>领域 <select id="group-filter"></select></label>
+    <label>状态 <select id="stage-filter"></select></label>
+    <button id="reset-filters" type="button" hidden>清除筛选</button>
+  </section>
+  <div id="atlas"></div>
+  <p id="empty" hidden>当前筛选没有匹配结果。</p>
+</main>
+<dialog id="detail-dialog"><div class="dialog-head"><span id="detail-kind"></span><button data-close="detail-dialog" aria-label="关闭详情">×</button></div><h2 id="detail-title"></h2><p id="detail-text"></p><div id="detail-connections"></div><div id="detail-source"></div></dialog>
 
 <div id="toast" role="status" aria-live="polite"></div><script src="data.js"></script><script src="app.js"></script></body></html>
